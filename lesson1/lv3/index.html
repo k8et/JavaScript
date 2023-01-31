@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button{
+
+        }
+    </style>
+</head>
+<body>
+<button onclick={login()}> Зайти на сайт </button>
+<script>
+    function login(){
+        let userName = prompt("Login", '');
+        let pass = prompt("Password", '')
+        if (pass === 'qwerty' && userName === 'admin') {
+            alert('Success')
+        } else if (pass === '' && userName === '' || pass === null && userName === null) {
+            alert('Отменено');
+        } else {
+            alert('Неверный пароль или логин');
+        }
+    }
+</script>
+</body>
+</html>

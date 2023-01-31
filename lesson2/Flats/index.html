@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form name="form">
+    <p> Количество этажей <input type="text" size=10 name="num1"></p>
+    <p> Количества квартир на этаже <input type="text" size=10 name="num2"></p>
+    <p> Номер квартиры <input type="text" size=10 name="num3"></p>
+    <input type="Button" value="Определить" onclick="result(form)">
+    <p>Номер этажа <input type="text" size=15 name="Res"></p>
+    <p>Номер подъезда <input type="text" size=15 name="res"></p>
+</form>
+<script>
+    function result(obj) {
+        let a=obj.num1.value,
+            b=obj.num2.value,
+            apartment = obj.num3.value;
+
+        let floor = Math.ceil(apartment / b);
+
+        let porch = Math.ceil(floor / a);
+
+        floor -= (porch - 1) * a;
+
+        obj.res.value=floor;
+        obj.Res.value=porch;
+    }
+</script>
+</body>
+</html>

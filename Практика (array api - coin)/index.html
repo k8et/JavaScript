@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div class="head">
+    <p>#</p>
+    <p>Coin</p>
+    <p class="current">Current price</p>
+    <p class="change">Price change 24h</p>
+</div>
+<div id="some">
+</div>
+<script>
+    const btn = document.createElement('button');
+    btn.innerText = "Монеты";
+    btn.addEventListener('click', async () => {
+        let page = prompt("Сколько монет отображать?");
+        const fetching = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${page}&page=1&sparkline=false`);
+        const data = await fetching.json();
+        let container = document.getElementById('some');
+        container.innerHTML =""
+        data.map((item,index) => {
+            console.log(item);
+            let bit = document.createElement('div');
+            bit.innerHTML = `<h1>${index+1}</h1>
+                             <img src=${item.image}> <h2>${item.name}</h2>
+                             <p>${item.current_price.toFixed(2)}$</p>
+                             <p>${item.price_change_percentage_24h.toFixed(2)}%</p>`;
+                container.append(bit);
+                });
+            });
+    document.body.append(btn);
+</script>
+</body>
+</html>

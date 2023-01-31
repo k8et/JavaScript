@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // <!--const  arr = [ 3, 2, 4, 7, 3, 4, 10, 4, 2]-->
+    //
+    // <!--что бы не было дубликатов-->
+    //
+    // <!--что бы был по возрастанию-->
+    //
+    // <!--результат предыдущих задач можно умножить на 2-->
+    const  arr = [ 3, 2, 4, 7, 3, 4, 10, 4, 2];
+    const filterArr =  arr.filter((item, index) => arr.indexOf(item) === index);
+    const sortedArr = filterArr.sort((a, b) => (a - b))
+    const doubleArr = sortedArr.map((item)=> item*2)
+    console.log(filterArr)
+    console.log(sortedArr)
+    console.log(doubleArr)
+</script>
+</body>
+</html>

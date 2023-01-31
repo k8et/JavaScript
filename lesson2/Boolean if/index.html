@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let text  = confirm("Вы женщина?") ? "" : (confirm ("Вы мужчина?") ? "" :  "")
+    let age = +prompt("Сколько вам лет?","");
+    if (age < 18){
+        alert("школьник");
+    }
+    else if (age >= 18 && age < 30){
+        alert("молодежь");
+    }
+    else if (age >= 30 && age < 45){
+        alert("зрелость");
+    }
+    else if (age >= 45 && age < 60){
+        alert("закат");
+    }
+    else if (age >= 60){
+        alert("как пенсия?");
+    }
+    alert( text || age);
+</script>
+</body>
+</html>

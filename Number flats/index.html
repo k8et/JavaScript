@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form>
+  <label for="floors">Количество этажей в здании:</label>
+  <input type="number" id="floors" name="floors">
+  <br>
+  <label for="apartments">Количество квартир на этаже:</label>
+  <input type="number" id="apartments" name="apartments">
+  <br>
+  <label for="apartmentNumber">Введите номер квартиры:</label>
+  <input type="number" id="apartmentNumber" name="apartmentNumber">
+  <br>
+  <button type="button" onclick="calculate()">Calculate</button>
+</form>
+<br>
+<p>Квартира расположена на  <span id="floor"></span> этаже подъезда <span id="entrance"></span></p>
+<script>
+  function calculate() {
+
+    const floors = document.getElementById("floors").value;
+    const apartmentsPerFloor = document.getElementById("apartments").value;
+    const apartmentNumber = document.getElementById("apartmentNumber").value;
+    const floor = Math.ceil(apartmentNumber / apartmentsPerFloor);
+    const entrance = Math.ceil(floor / floors);
+
+
+    document.getElementById("floor").innerText = floor;
+    document.getElementById("entrance").innerText = entrance;
+  }
+</script>
+</body>
+</html>
